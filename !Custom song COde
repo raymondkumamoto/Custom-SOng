@@ -3,11 +3,13 @@
 #https://youtube.com/watch?v=ydGcJaXzP38
 #https://www.youtube.com/watch?v=2AvJyFLRqXA
 use_bpm 157
-vocals ="C:/Users/manta/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW.wav"
-clap ="C:/Users/manta/Downloads/Clap Sound For Music Production  [ HD ].wav"
-bass = "C:/Users/manta/Downloads/Bling-Bang-Bang-Born BASSSSSSSS.wav"
-music ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornMUSICC.wav"
-squeak ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW (1).wav"
+clap ="C:/Users/Raymond_Kumamoto/Downloads/Clap Sound For Music Production  [ HD ] (1).wav"
+bass = "C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-Born BASSSSSSSS.wav"
+music ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornMUSICC.wav"
+squeak ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+
+
 
 define :drum do
   sample :bd_ada
@@ -29,23 +31,13 @@ define :solodrum do
   end
 end
 
+x=1
 define :claps do
-  sample clap, amp: 1
-  sleep 1
-  sample clap, amp: 2
-  sleep 1
-  sample clap, amp: 3
-  sleep 1
-  sample clap, amp: 4
-  sleep 1
-  sample clap, amp: 5
-  sleep 1
-  sample clap, amp: 6
-  sleep 1
-  sample clap, amp: 7
-  sleep 1
-  sample clap, amp: 8
-  sleep 1
+  8.times do
+    sample clap, amp: x
+    x=x+1
+    sleep 1
+  end
 end
 
 define :snare do
@@ -118,13 +110,11 @@ live_loop :drumsss do
   stop
 end
 live_loop :clapsss do
-  1.times do
-    claps
-    5.times do
-      4.times do
-        sample clap, amp: 8
-        sleep 1
-      end
+  claps
+  5.times do
+    4.times do
+      sample clap, amp: 8
+      sleep 1
     end
   end
   stop
