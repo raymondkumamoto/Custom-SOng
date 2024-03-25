@@ -1,0 +1,39 @@
+squeak ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+VocalsPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Vocals PT1.mp3"
+BassPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Bass PT1.mp3"
+define :drum do
+  sample :bd_ada
+  sleep 1.5
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 0.5
+  sample :bd_ada
+  sleep 0.5
+end
+define :squeaks do
+  4.times do
+    sample squeak, amp: 2
+    sleep 1
+  end
+end
+use_bpm 156
+squeaks
+use_bpm 85
+
+x=0
+squeakzzzz = [0.6,0.7,0.8,0.9,1,1.5]
+6.times do
+  4.times do
+    sample squeak, amp: 2
+    sleep (squeakzzzz [x])
+  end
+  x=x+1
+end
+live_loop :ptonesqueaks do
+  sample squeak
+  sleep 0.5
+end
+sample VocalsPt1, amp: 0.5
