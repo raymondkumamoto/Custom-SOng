@@ -24,16 +24,19 @@ squeaks
 use_bpm 85
 
 x=0
-squeakzzzz = [0.6,0.7,0.8,0.9,1,1.5]
-6.times do
+squeakzzzz = [156,146,126,116,105,95,85]
+7.times do
   4.times do
+    use_bpm (squeakzzzz [x])
     sample squeak, amp: 2
-    sleep (squeakzzzz [x])
+    sleep 1
   end
   x=x+1
 end
+
 live_loop :ptonesqueaks do
   sample squeak
-  sleep 0.5
+  sleep 1
 end
 sample VocalsPt1, amp: 0.5
+drum
