@@ -1,8 +1,3 @@
-squeak ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
-squeakk ="C:/Users/manta/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
-VocalsPt1="C:/Users/manta/Downloads/Flashbang Vocals PT1.mp3"
-BassPt1="C:/Users/manta/Downloads/Flashbang Bass PT1.mp3"
-
 define :drum do
   sample :bd_pure
   sleep 0.75
@@ -84,22 +79,28 @@ define :hat do
     end
   end
 end
-
-
-
-
 define :squeaks do
   4.times do
     sample squeak
     sleep 1
   end
 end
+
 define :squeakks do
   4.times do
     sample squeakk, amp: 0.1
     sleep 1
   end
 end
+squeak="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+squeakk ="C:/Users/Raymond_Kumamoto/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
+VocalsPt1="C:/Users/Raymond_Kumamoto/Downloads/RPReplay_Final1711044664 (2) vocals and bass.mp3"
+BassPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Bass PT1.mp3"
+toji="C:/Users/Raymond_Kumamoto/Downloads/Toji Fushiguro best moments  Hidden Inventory Arc.mp3"
+BassPt2="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Vocals PT2 (1).mp3"
+
+
+
 use_bpm 156
 squeaks
 use_bpm 85
@@ -117,11 +118,17 @@ squeakzzzz = [156,146,126,116,105,95,85]
   end
   x=x+1
 end
-sleep 1
+sleep 0.25
+
+slowsqueakks
 slowsqueakks
 squeakks
 squeakks
+drumm
 use_bpm 85
+
+sample VocalsPt1, amp: 0.5
+
 live_loop :ptonesqueaks do
   63.times do
     sample squeakk, amp: 0.07
@@ -129,54 +136,13 @@ live_loop :ptonesqueaks do
   end
   stop
 end
-sample VocalsPt1, amp: 0.5
-
-live_loop :drumAndhat do
-  63.times do
-    drumm
-    
-  end
-  stop
-end
 7.times do
   hat
 end
-sleep 7
 
 
 sample toji, amp: 0.7
 sleep 17
-
-
-sample VocalsPt2, amp: 0.5
-live_loop :pttwosqueaks do
-  32.times do
-    sample squeakk, amp: 0.01
-    sleep 1
-  end
-  stop
-end
-live_loop :drumAndhat do
-  32.times do
-    drum
-    
-  end
-  stop
-end
-8.times do
-  hat
-end
-
-
-
-
-
-
-
-
-sample toji, amp: 0.7
-sleep 18
-
 
 sample VocalsPt2, amp: 0.5
 live_loop :pttwosqueaks do
