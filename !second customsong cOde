@@ -1,28 +1,102 @@
-squeak ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
-squeakk ="C:/Users/Raymond_Kumamoto/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
-VocalsPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Vocals PT1.mp3"
-BassPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Bass PT1.mp3"
+squeak ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+squeakk ="C:/Users/manta/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
+VocalsPt1="C:/Users/manta/Downloads/Flashbang Vocals PT1.mp3"
+BassPt1="C:/Users/manta/Downloads/Flashbang Bass PT1.mp3"
+
 define :drum do
-  sample :bd_ada
-  sleep 1.5
-  sample :bd_ada
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
   sleep 1
-  sample :bd_ada
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 0.5
+  sample :bd_pure
+  sleep 0.5
+  
+  
+  
+end
+define :drumm do
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
   sleep 1
-  sample :bd_ada
+  sample :bd_pure
+  sleep 3.75
+end
+define :drum2 do
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
   sleep 0.5
-  sample :bd_ada
-  sleep 0.5
+  sample :bd_pure
+  sleep 0.75
+end
+define :drumm2 do
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
+  sleep 1
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 0.25
 end
 define :squeaks do
   4.times do
-    sample squeak, amp: 2
+    sample squeak, amp: 1
     sleep 1
   end
 end
 define :squeakks do
   4.times do
-    sample squeakk, amp: 2
+    sample squeakk, amp: 0.5
+    sleep 1
+  end
+end
+define :slowsqueakks do
+  4.times do
+    sample squeak, amp: 0.5, beat_stretch: 1.2
+    sleep 1
+  end
+end
+define :hat do
+  16.times do
+    4.times do
+      sample :hat_bdu, amp: 0.3
+      sleep 0.25
+    end
+    sample :hat_raw, amp: 0.3
+    sleep 0.25
+    3.times do
+      sample :hat_bdu, amp: 0.3
+      sleep 0.25
+    end
+  end
+end
+
+
+
+
+define :squeaks do
+  4.times do
+    sample squeak
+    sleep 1
+  end
+end
+define :squeakks do
+  4.times do
+    sample squeakk, amp: 0.1
     sleep 1
   end
 end
@@ -32,22 +106,94 @@ use_bpm 85
 
 x=0
 squeakzzzz = [156,146,126,116,105,95,85]
+
+
+
 7.times do
-  4.times do
+  2.times do
     use_bpm (squeakzzzz [x])
     sample squeak, amp: 2
     sleep 1
   end
   x=x+1
 end
-
-
+sleep 1
+slowsqueakks
+squeakks
+squeakks
+use_bpm 85
 live_loop :ptonesqueaks do
-  
-  sample squeakk amp: 0.5
-  sleep 1
+  63.times do
+    sample squeakk, amp: 0.07
+    sleep 1
+  end
+  stop
 end
-sample VocalsPt1, amp: 1
+sample VocalsPt1, amp: 0.5
+
+live_loop :drumAndhat do
+  63.times do
+    drumm
+    
+  end
+  stop
+end
 7.times do
-  drum
+  hat
 end
+sleep 7
+
+
+sample toji, amp: 0.7
+sleep 17
+
+
+sample VocalsPt2, amp: 0.5
+live_loop :pttwosqueaks do
+  32.times do
+    sample squeakk, amp: 0.01
+    sleep 1
+  end
+  stop
+end
+live_loop :drumAndhat do
+  32.times do
+    drum
+    
+  end
+  stop
+end
+8.times do
+  hat
+end
+
+
+
+
+
+
+
+
+sample toji, amp: 0.7
+sleep 18
+
+
+sample VocalsPt2, amp: 0.5
+live_loop :pttwosqueaks do
+  32.times do
+    sample squeakk, amp: 0.01
+    sleep 1
+  end
+  stop
+end
+live_loop :drumAndhat do
+  32.times do
+    drum
+    
+  end
+  stop
+end
+8.times do
+  hat
+end
+
