@@ -1,0 +1,271 @@
+#https://musescore.com/user/30076267/scores/14055703
+#https://www.youtube.com/watch?v=ek63SrOAnF4
+#https://youtube.com/watch?v=ydGcJaXzP38
+#https://www.youtube.com/watch?v=2AvJyFLRqXA
+use_bpm 157
+vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW.wav"
+clap ="C:/Users/Raymond_Kumamoto/Downloads/Clap Sound For Music Production  [ HD ].wav"
+bass = "C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-Born BASSSSSSSS.wav"
+music ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornMUSICC.wav"
+squeak ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+squeak="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+squeakk ="C:/Users/Raymond_Kumamoto/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
+VocalsPt1="C:/Users/Raymond_Kumamoto/Downloads/RPReplay_Final1711044664 (2) vocals and bass.mp3"
+BassPt1="C:/Users/Raymond_Kumamoto/Downloads/Flashbang Bass PT1.mp3"
+toji="C:/Users/Raymond_Kumamoto/Downloads/Toji Fushiguro best moments  Hidden Inventory Arc.mp3"
+
+
+define :drum do
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 0.5
+  sample :bd_ada
+  sleep 0.5
+end
+
+define :solodrum do
+  4.times do
+    sample :bd_ada
+    sleep 1
+  end
+end
+
+x=1
+define :claps do
+  8.times do
+    sample clap, amp: x
+    x=x+1
+    sleep 1
+  end
+end
+
+define :snare do
+  2.times do
+    sample :hat_zap, amp: 0.5
+    sleep 2
+  end
+end
+
+define :squeaks do
+  4.times do
+    sample squeak, amp: 2
+    sleep 1
+  end
+end
+
+
+
+#song starts
+
+
+
+
+#intro
+sample :vinyl_rewind
+
+sleep 4
+
+sample vocals
+sample bass
+
+7.times do
+  drum
+end
+sleep 4
+#part1
+sample music, amp: 0.5
+live_loop :drums do
+  24.times do
+    drum
+  end
+  stop
+end
+live_loop :squeaksss do
+  8.times do
+    squeaks
+  end
+  stop
+end
+sleep 32
+live_loop :snares do
+  16.times do
+    snare
+  end
+  stop
+end
+sleep 32
+live_loop :squeakER do
+  8.times do
+    squeaks
+  end
+  stop
+end
+sleep 32
+#kagami yo kagami kotaechate
+live_loop :drumsss do
+  7.times do
+    solodrum
+  end
+  stop
+end
+live_loop :clapsss do
+  claps
+  5.times do
+    4.times do
+      sample clap, amp: 8
+      sleep 1
+    end
+  end
+  stop
+end
+sleep 28
+sample :drum_tom_lo_hard
+sleep 4
+#bling bam bam born!!
+live_loop :drums do
+  16.times do
+    drum
+  end
+  stop
+end
+live_loop :squeeeek do
+  18.times do
+    squeaks
+  end
+  stop
+end
+define :drumsssssss do
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 1
+  sample :bd_pure
+  sleep 0.75
+  sample :bd_pure
+  sleep 0.25
+  sample :bd_pure
+  sleep 0.5
+  sample :bd_pure
+  sleep 0.5
+end
+
+
+
+define :squeakssssss do
+  4.times do
+    sample squeak, amp: 1
+    sleep 1
+  end
+end
+define :squeakks do
+  4.times do
+    sample squeakk, amp: 0.5
+    sleep 1
+  end
+end
+define :slowsqueakks do
+  4.times do
+    sample squeak, amp: 0.5, beat_stretch: 1.2
+    sleep 1
+  end
+end
+define :hat do
+  2.times do
+    4.times do
+      sample :hat_bdu, amp: 0.3
+      sleep 0.25
+    end
+    sample :hat_raw, amp: 0.3
+    sleep 0.25
+    3.times do
+      sample :hat_bdu, amp: 0.3
+      sleep 0.25
+    end
+  end
+end
+
+
+define :squeakkss do
+  4.times do
+    sample squeakk, amp: 0.1
+    sleep 1
+  end
+end
+
+
+
+
+use_bpm 156
+squeaks
+use_bpm 85
+
+x=0
+squeakzzzz = [156,146,126,116,105,95,85]
+
+
+
+7.times do
+  2.times do
+    use_bpm (squeakzzzz [x])
+    sample squeak, amp: 2
+    sleep 1
+  end
+  x=x+1
+end
+sleep 0.25
+
+
+4.times do
+  squeakks
+end
+live_loop :ptonesqueaks do
+  squeakks
+  squeakks
+  squeakks
+  squeakks
+  sample VocalsPt1, amp: 0.5
+  63.times do
+    sample squeakk, amp: 0.07
+    sleep 1
+  end
+  stop
+end
+20.times do
+  hat
+end
+
+
+
+
+
+sample toji, amp: 0.7
+sleep 17
+
+
+
+#sample VocalsPt2, amp: 0.5
+
+live_loop :pttwosqueaks do
+  16.times do
+    sample squeakk, amp: 0.1
+    sleep 1
+  end
+  stop
+end
+live_loop :drumAndhat do
+  6.times do
+    drum
+    
+  end
+  stop
+end
+6.times do
+  hat
+end
