@@ -1,16 +1,14 @@
-#https://musescore.com/user/30076267/scores/14055703
-#https://www.youtube.com/watch?v=ek63SrOAnF4
-#https://youtube.com/watch?v=ydGcJaXzP38
-#https://www.youtube.com/watch?v=2AvJyFLRqXA
+#https://www.youtube.com/watch?v=27O1y-FmPoM
+#https://www.youtube.com/watch?v=z-o36hWAuHs
 use_bpm 157
-vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW.wav"
-clap ="C:/Users/Raymond_Kumamoto/Downloads/Clap Sound For Music Production  [ HD ].wav"
-bass = "C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-Born BASSSSSSSS.wav"
-music ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornMUSICC.wav"
-squeak ="C:/Users/Raymond_Kumamoto/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
-squeakk ="C:/Users/Raymond_Kumamoto/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
-VocalsPt2="C:/Users/Raymond_Kumamoto/Downloads/RPReplay_Final1711044664 (2) vocals and bass.mp3"
-toji="C:/Users/Raymond_Kumamoto/Downloads/Toji Fushiguro best moments  Hidden Inventory Arc.mp3"
+vocals="C:/Users/manta/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW.wav"
+clap ="C:/Users/manta/Downloads/Clap Sound For Music Production  [ HD ].wav"
+bass = "C:/Users/manta/Downloads/Bling-Bang-Bang-Born BASSSSSSSS.wav"
+music ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornMUSICC.wav"
+squeak ="C:/Users/manta/Downloads/Bling-Bang-Bang-BornREAL SQUEAK.wav"
+squeakk ="C:/Users/manta/Downloads/Bed Squeak Sample [Jersey Club  Future Bass].mp3"
+VocalsPt2="C:/Users/manta/Downloads/RPReplay_Final1711044664 (2) vocals and bass.mp3"
+toji="C:/Users/manta/Downloads/Toji Fushiguro best moments  Hidden Inventory Arc.mp3"
 #2nd song defines
 define :pf do |o|
   sample :bd_ada
@@ -23,16 +21,16 @@ define :squeakks do
     sleep 1
   end
 end
-define :hat do
+define :hat do |amp: 0.4|  # Define hat function with amp argument and default value
   2.times do
     4.times do
-      sample :hat_bdu, amp: 0.3
+      sample :hat_bdu, amp: amp
       sleep 0.25
     end
-    sample :hat_raw, amp: 0.3
+    sample :hat_raw, amp: amp
     sleep 0.25
     3.times do
-      sample :hat_bdu, amp: 0.3
+      sample :hat_bdu, amp: amp
       sleep 0.25
     end
   end
@@ -45,6 +43,39 @@ define :squeakkss do
     sleep 1
   end
 end
+
+y = 0.4
+z =  1
+define :fadeoutPT2 do
+  live_loop :ampf do
+    4.times do
+      sample :bd_ada, amp: z
+      sleep  0.75
+      sample :bd_ada, amp: z
+      sleep 0.25
+      sample :bd_ada, amp: z
+      sleep 1
+      sample :bd_ada, amp: z
+      sleep 0.75
+      sample :bd_ada, amp: z
+      sleep 0.25
+      sample :bd_ada, amp: z
+      sleep 0.5
+      sample :bd_ada, amp: z
+      sleep 0.5
+      z = z - 0.2
+    end
+    stop
+  end
+end
+
+define :fadeoutPT do
+  4.times do
+    hat(amp: y)  # Pass amp argument to hat function
+    y = y - 0.1
+  end
+end
+
 
 
 use_bpm 156
@@ -96,18 +127,24 @@ live_loop :pttwosqueaks do
   end
   stop
 end
-live_loop :drumAndhat do
-  6.times do
-    pf 0.75
-    pf 0.25
-    pf 1
-    pf 0.75
-    pf 0.25
-    pf 0.5
-    pf 0.5
+define :drumAndhatPT2 do
+  live_loop :drumAndhatPT2sss do
+    4.times do
+      pf 0.75
+      pf 0.25
+      pf 1
+      pf 0.75
+      pf 0.25
+      pf 0.5
+      pf 0.5
+    end
+    stop
   end
-  stop
+  
+  4.times do
+    hat
+  end
 end
-6.times do
-  hat
-end
+drumAndhatPT2
+fadeoutPT2
+fadeoutPT
